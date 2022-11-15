@@ -19,10 +19,8 @@ def split_previous(translator: Translator, stroke: Stroke, cmdline: str):
 
     undo(translator, stroke, cmdline)
 
-    translator.translate_stroke(Stroke("ß"))
+    translator.translate_stroke(Stroke("*À"))
     translator.translate_stroke(Stroke(latest_stroke))
-
-    index = stroke.steno_keys.index("ß")
 
     newstroke = stroke.steno_keys[0:-1]
     if not "".join(newstroke) == "*":
@@ -32,7 +30,13 @@ def split_previous(translator: Translator, stroke: Stroke, cmdline: str):
         print("found undo")
 
 
-"""     if stroke.steno_keys.length > 0:
-        translator.translate_stroke(
-            stroke)
- """
+def space_or_split(translator: Translator, stroke: Stroke, cmdline: str):
+    print(len(stroke.steno_keys))
+    print(translator.get_state().prev())
+    print(stroke.steno_keys)
+    if len(stroke.steno_keys) > 1:
+        # is a stroke
+        split_previous(translator, stroke, cmdline)
+    else:
+        # is a space
+        translator.translate_stroke(Stroke("*À"))
