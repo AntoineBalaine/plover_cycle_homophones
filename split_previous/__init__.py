@@ -36,9 +36,6 @@ def split_previous(translator: Translator, stroke: Stroke, cmdline: str):
 
 
 def space_or_split(translator: Translator, stroke: Stroke, cmdline: str):
-    print(len(stroke.steno_keys))
-    print(translator.get_state().prev())
-    print(stroke.steno_keys)
     if len(stroke.steno_keys) > 1:
         # is a stroke
         split_previous(translator, stroke, cmdline)
