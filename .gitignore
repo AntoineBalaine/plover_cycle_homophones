@@ -5,3 +5,6 @@ plover_split_at_apostrophe.egg-info
 split_previous/.vscode
 split_previous/__pycache__
 split_previous.egg-info
+build/lib/split_previous
+dist
+plover_cycle_homophones.egg-info
